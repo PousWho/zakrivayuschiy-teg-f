@@ -1,0 +1,115 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+
+:root.theme-dark {
+    --accent-color: #00CC14;
+    --background-color: #000000;
+    --background-image: url(../images/background-dark.png);
+    --gradient-line-1: rgb(0 0 0);
+    --gradient-line-2: rgb(0 0 0 / 0%);
+    --gradient-smeared-1: #007f0c;
+    --gradient-smeared-2: #004306;
+    --color-heart: #FF0000;
+    --color-heart-contour: #00CC14;
+    --color-heart-fill: #FF0000;
+    --color-heart-unfill: #000000;
+    --button-text-color: #00CC14;
+    --icon-color: #00CC14;
+    --gradient-left-right: repeating-linear-gradient(
+      to right,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-top-bottom: repeating-linear-gradient(
+      to bottom,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-background: linear-gradient(
+      to bottom,
+      var(--gradient-smeared-1),
+      var(--gradient-smeared-2)
+    );
+  }
+
+  :root.theme-light {
+      --background-image: url(../images/background-light.png);
+      --background-color: #FFFFFF;
+      --main-font: 'Inter-Variable';
+      --second-font: 'PressStart2P';
+      --accent-color: #000000;
+      --button-text-color: #FFFFFF;
+      --gradient-line-1: rgb(211 211 211);
+    --gradient-line-2: rgb(211 211 211 / 0%);
+    --gradient-smeared-1: #e7e7e7;
+    --gradient-smeared-2: #1a1a1a;
+    --icon-color: #FFFFFF;
+    
+    --gradient-left-right: repeating-linear-gradient(
+      to right,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-top-bottom: repeating-linear-gradient(
+      to bottom,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-background: linear-gradient(
+      to bottom,
+      var(--gradient-smeared-1) 0.01%,
+      var(--gradient-smeared-2)
+    );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-color: #00CC14;
+    --background-color: #000000;
+    --background-image: url(../images/background-dark.png);
+    --gradient-line-1: rgb(0 0 0);
+    --gradient-line-2: rgb(0 0 0 / 0%);
+    --gradient-smeared-1: #007f0c;
+    --gradient-smeared-2: #004306;
+    --color-heart: #FF0000;
+    --color-heart-fill: #FF0000;
+    --button-text-color: #00CC14;
+    --gradient-left-right: repeating-linear-gradient(
+      to right,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-top-bottom: repeating-linear-gradient(
+      to bottom,
+      var(--gradient-line-2) 0,
+      var(--gradient-line-1) 1px,
+      var(--gradient-line-1) 2px,
+      var(--gradient-line-2) 3px,
+      var(--gradient-line-2) 4px
+    );
+    --gradient-background: linear-gradient(
+      to bottom,
+      var(--gradient-smeared-1),
+      var(--gradient-smeared-2)
+    );
+}
+}

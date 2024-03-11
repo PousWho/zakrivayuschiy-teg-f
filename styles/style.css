@@ -1,0 +1,479 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+p {
+  max-inline-size: 321px;
+}
+
+.page {
+  display: grid;
+  justify-content: center;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  background-image: var(--gradient-left-right), var(--gradient-top-bottom),
+  var(--gradient-background);
+  background-position: center;
+  background-size: cover; 
+  background-attachment: fixed;
+  margin: 0 auto;
+  font-family: var(--main-font);
+  
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+  margin-block-start: 100px;
+  min-height: 327px;
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-family: var(--second-font);
+  font-size: calc( (100vw - 375px)/(1440 - 375) * (65 - 49) + 49px);
+  font-weight: 400;
+  line-height: 49px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 120px;
+  color: var(--accent-color);
+}
+
+.header__title-small {
+  padding-top: 20px;
+  color: var(--accent-color);
+  font-family: var(--second-font);
+  font-size: calc( (100vw - 375px)/(1440 - 375) * (23 - 14) + 14px);
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.theme-menu {
+  padding-top: 25px;
+  padding-left: 20px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 14px;
+}
+
+.theme-menu__item {
+  font-family: var(--second-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  animation: animation-right-arrow 0.5s ease-in-out alternate infinite;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  padding: 0;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: var(--accent-color);
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  scale: 0;
+  transform-origin: left;
+  transition: scale 0.3s ease;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  outline: none;
+  scale: 1;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
+.main {
+  display: grid;
+  gap: 46px;
+  margin: 0 auto;
+  max-width: 696px;
+}
+
+.main__card {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 100px;
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  max-width: 696px;
+  padding-bottom: 25px;
+}
+
+.main__card-nomargin {
+  margin-block-start: 0;
+}
+
+.main__title {
+  padding: 5px 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  max-inline-size: 368px;
+}
+
+.card__image {
+  padding-top: 3px;
+  width: 100%;
+}
+
+.photo__card {
+  width: 100%;
+  position: relative;
+}
+.low-c {
+  filter: grayscale(80%);
+}
+
+.hight-c {
+  filter: saturate(250%);
+}
+
+.purple-c {
+  filter: hue-rotate(36deg);
+}
+
+.green-c {
+  filter: invert(80%);
+}
+
+.brown-c {
+  filter: sepia(90%);
+}
+
+.blur-c {
+  filter: blur(100%);
+}
+
+.red-c {
+  filter: hue-rotate(99deg);
+}
+
+.photo__card-lable {
+  position: absolute;
+  z-index: 2;
+  opacity: 50%;
+  color: var(--accent-color);
+  font-family: var(--second-font), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-shadow:
+    1px 0 0 var(--background-color),
+    1px 0 0 var(--background-color),
+    0 1px 0 var(--background-color),
+    0 1px 0 var(--background-color),
+    -1px 0 0 var(--background-color),
+    -1px 0 0 var(--background-color),
+    0 -1px 0 var(--background-color),
+    0 -1px 0 var(--background-color);
+  mix-blend-mode: hard-light;
+  inset-inline-end: 13px;
+  padding-top: 28px;
+}
+
+.main__p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  align-self: center;
+  padding-top: 25px;
+}
+
+.main__description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 28px;
+  align-self: center;
+}
+
+.like {
+  display: flex;
+  justify-content: end;
+  width: 93%;
+  padding-top: 25px;
+}
+
+
+.card__icon-button {
+  display: flex;
+  background: var(--background-color);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.card__like-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  max-width: 130px;
+}
+
+.like-icon {
+  block-size: 36px;
+  inline-size: 34px;
+}
+
+.button {
+  position: relative;
+  border: 2px solid var(--accent-color);
+  padding: 10px 35px;
+  background-color: var(--background-color);
+  font-family: var(--second-font);
+  font-size: 14px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+}
+
+.button__icon {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  mix-blend-mode: difference;
+  color: var(--icon-color);
+}
+
+.button__text {
+  display: block;
+  height: max-content;
+  font-family: var(--second-font);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
+}
+
+.save__button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-block-end: 102px;
+}
+
+.dialog {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: var(--background-color);
+  padding: 30px 42px;
+  max-width: 341px;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dialog__section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.dialog__text {
+  color: var(--accent-color);
+  font-family: var(--second-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog__icon {
+  width: 39px;
+  height: 39px;
+  flex: none;
+}
+
+.dialog__button {
+  width: 100%;
+}
+
+.button__opener {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+@media (width >= 1440px) {
+  .header {
+    min-width: 696px;
+    min-height: 368px;
+  }
+
+  .header__title {
+    padding-top: 144px;
+  }
+
+  .header__title-small {
+    padding-top: 33px;
+  }
+
+  .theme-menu {
+    padding-top: 30px;
+  }
+
+  .main {
+    min-width: 696px;
+    gap: 45px;
+  }
+
+  .main__card-nomargin {
+    margin-block-start: 0;
+  }
+
+  .main__title {
+    max-inline-size: none;
+  }
+
+  .photo__card-lable {
+    inset-inline-end: 23px;
+    padding-top: 31px;
+  }
+
+  .main__p {
+    padding-top: 30px;
+  }
+
+  p{
+    max-inline-size: 646px;
+  }
+
+  .main__description {
+    align-self: start;
+    padding-left: 25px;
+  }
+
+  .like {
+    width: 97%;
+  }
+
+  .dialog {
+    max-width: 357px;
+  }
+
+  .button__opener {
+    flex-direction: row;
+    padding: 12px 20px;
+  }
+
+  .button__icon {
+    width: 22px;
+    height: 27px;
+  }
+}
+/* Наполняй емае поменяй классы м логику
+
+
